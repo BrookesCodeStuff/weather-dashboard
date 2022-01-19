@@ -1,0 +1,17 @@
+:root {
+  --dark: rgb(37, 11, 91);
+  --navy: rgb(51, 71, 90);
+  --blue: rgb(59, 110, 196);
+  --light-blue: rgb(90, 162, 233);
+}
+
+/*                  BEGIN                             */
+/*              CUSTOM STYLES                         */
+
+header {
+  background-color: darkblue;
+  background-image: linear-gradient(to right, var(--blue), var(--dark));
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
