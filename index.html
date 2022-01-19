@@ -26,29 +26,35 @@
         <h1 class="fw-bold">Weather Dashboard</h1>
       </div>
     </header>
-    <main class="row">
-      <div class="col-sm-12 col-md-4 col-lg-4">
+    <main class="row gx-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <form id="city-form">
-          <label for="city">Search for a city:</label>
+          <label for="city" class="form-label fw-bold fs-2"
+            >Search for a City:</label
+          >
           <input
             type="text"
             name="city"
             id="city"
             placeholder="San Diego"
             autofocus="true"
-            class="form-input" />
-          <button type="submit">Get Weather</button>
+            class="form-control mb-2" />
+          <button type="submit" class="btn btn-primary w-100">Search</button>
         </form>
         <hr />
-        <div class="btns-container">
-          <button>Austin</button>
+        <div class="btn-container">
         </div>
       </div>
-      <div class="col-sm-12 col-md-8 col-lg-8">
-        <div id="dashboard" class="col-10 border"></div>
-        <div id="forecast" class="col-10 border"></div>
+      <div class="col-sm-12 col-md-9 col-lg-9">
+        <div id="dashboard"></div>
+        <div id="forecast"></div>
       </div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"
+      integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

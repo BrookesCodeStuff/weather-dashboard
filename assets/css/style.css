@@ -1,8 +1,9 @@
 :root {
   --dark: rgb(37, 11, 91);
-  --navy: rgb(51, 71, 90);
+  --navy: rgba(51, 71, 90);
   --blue: rgb(59, 110, 196);
   --light-blue: rgb(90, 162, 233);
+  --gray: rgb(183, 183, 183);
 }
 
 /*                  BEGIN                             */
@@ -14,4 +15,22 @@ header {
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+.btn-primary {
+  background-color: var(--light-blue);
+}
+
+.btn-light {
+  background-color: var(--gray);
+}
+
+.card {
+  color: white;
+  background-color: var(--navy);
+}
+
+.card img {
+  width: 50px;
+  height: auto;
 }
