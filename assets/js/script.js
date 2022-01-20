@@ -19,16 +19,16 @@ var cityHistory = [];
 var formSubmitHandler = function (event) {
   event.preventDefault();
   dashboardEl.textContent = '';
+  dashboardEl.classList = '';
   forecastEl.textContent = '';
   var city = cityInputEl.value.trim();
-  console.log(event.target.classList.contains('btn-light'));
   if (city) {
     cityInputEl.value = '';
     return getCityLatLng(city);
   } else if (event.target.classList.contains('btn-light')) {
     return getCityLatLng(event.target.textContent);
   } else {
-    alert('Please enter the name of a city.');
+    alert('Please enter the name of a valid city.');
     return false;
   }
 };
@@ -46,9 +46,11 @@ var getCityLatLng = function (city) {
     if (response.ok) {
       response.json().then(function (data) {
         getWeatherData(data[0].lat, data[0].lon, data[0].name);
-        cityHistory.unshift(city);
-        localStorage.setItem('cityHistory', JSON.stringify(cityHistory));
-        createHistoryButton(city);
+        if (cityHistory.includes(city) === false) {
+          cityHistory.unshift(city);
+          localStorage.setItem('cityHistory', JSON.stringify(cityHistory));
+          createHistoryButton(city);
+        }
       });
     } else {
       alert(
@@ -83,7 +85,6 @@ var getWeatherData = function (lat, lon, city) {
 };
 
 var displayWeatherData = function (data, city) {
-  console.log(data);
   var today = dayjs();
   var curr = data.current;
   var daily = data.daily;
@@ -174,6 +175,7 @@ var loadHistory = function () {
 
   // Loop through the searched cities and create a button
   for (var i = 0; i < searchedCities.length; i++) {
+    cityHistory.push(searchedCities[i]);
     createHistoryButton(searchedCities[i]);
   }
 };
