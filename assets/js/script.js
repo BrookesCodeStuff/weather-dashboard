@@ -88,7 +88,7 @@ var displayWeatherData = function (data, city) {
   var today = dayjs();
   var curr = data.current;
   var daily = data.daily;
-  var iconUrl = 'http://openweathermap.org/img/wn/';
+  var iconUrl = 'https://openweathermap.org/img/wn/';
 
   // Create the current conditions dashboard
   // Create element for city name
