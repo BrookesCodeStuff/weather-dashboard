@@ -36,7 +36,7 @@ var formSubmitHandler = function (event) {
 var getCityLatLng = function (city) {
   // Format the geocode API URL
   var apiLocUrl =
-    'http://api.openweathermap.org/geo/1.0/direct?q=' +
+    'https://api.openweathermap.org/geo/1.0/direct?q=' +
     city +
     ',US&limit=1&appid=' +
     apiKey;
