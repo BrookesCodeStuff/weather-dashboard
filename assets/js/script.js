@@ -38,7 +38,7 @@ var getCityLatLng = function (city) {
   var apiLocUrl =
     'https://api.openweathermap.org/geo/1.0/direct?q=' +
     city +
-    ',US&limit=1&appid=' +
+    '&limit=1&appid=' +
     apiKey;
 
   // Make a request to the URL
@@ -46,16 +46,14 @@ var getCityLatLng = function (city) {
     if (response.ok) {
       response.json().then(function (data) {
         getWeatherData(data[0].lat, data[0].lon, data[0].name);
-        if (cityHistory.includes(city) === false) {
-          cityHistory.unshift(city);
+        if (cityHistory.includes(city.toLowerCase()) === false) {
+          cityHistory.unshift(city.toLowerCase());
           localStorage.setItem('cityHistory', JSON.stringify(cityHistory));
           createHistoryButton(city);
         }
       });
     } else {
-      alert(
-        'City not found. For best results, include the city and state (ex. Orlando, FL)'
-      );
+      alert('City not found.');
     }
   });
 };
@@ -156,7 +154,7 @@ var displayWeatherData = function (data, city) {
 
 var createHistoryButton = function (city) {
   var button = document.createElement('button');
-  button.textContent = city;
+  button.textContent = city.charAt(0).toUpperCase() + city.slice(1);
   button.classList = 'btn btn-light mb-3 w-100';
   btnContainer.append(button);
 };
